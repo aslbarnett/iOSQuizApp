@@ -10,24 +10,34 @@ import GameKit
 
 struct QuestionProvider {
     let questions: [Question] = [
-        Question(question: "Only female koalas can whistle", answer: "False", options: ["True", "False"]),
-        Question(question: "Blue whales are technically whales", answer: "True", options: ["True", "False"]),
-        Question(question: "Camels are cannibalistic", answer: "False", options: ["True", "False"]),
-        Question(question: "All ducks are birds", answer: "True", options: ["True", "False"]),
-        Question(question: "This was the only US President to serve more than two consecutive terms.", answer: "Franklin D. Roosevelt", options: ["George Washington", "Franklin D. Roosevelt", "Woodrow Wilson", "Andrew Jackson"]),
-        Question(question: "Which of the following countries has the most residents?", answer: "Nigeria", options: ["Nigeria", "Russia", "Iran", "Vietnam"]),
-        Question(question: "In what year was the United Nations founded?", answer: "1945", options: ["1918", "1919", "1945", "1954"]),
-        Question(question: "The Titanic departed from the United Kingdom, where was it supposed to arrive?", answer: "New York City", options: ["Paris", "Washington D.C.", "New York City", "Boston"]),
-        Question(question: "Which nation produces the most oil?", answer: "Canada", options: ["Iran", "Iraq", "Brazil", "Canada"]),
-        Question(question: "Which country has most recently won consecutive World Cups in Soccer?", answer: "Brazil", options: ["Italy", "Brazil", "Argentina", "Spain"]),
-        Question(question: "Which of the following rivers is longest?", answer: "Mississippi", options: ["Yangtze", "Mississippi", "Congo", "Mekong"]),
-        Question(question: "Which city is the oldest?", answer: "Mexico City", options: ["Mexico City", "Cape Town", "San Juan", "Sydney"]),
-        Question(question: "Which country was the first to allow women to vote in national elections?", answer: "Poland", options: ["Poland", "United States", "Sweden", "Senegal"]),
-        Question(question: "Which of these countries won the most medals in the 2012 Summer Games?", answer: "Great Britain", options: ["France", "Germany", "Japan", "Great Britain"])
+        Question(question: "Which decade was Jun Fan Gung Fu created?", answer: "1960s", options: ["1940s", "1950s", "1960s", "1970s"]),
+        Question(question: "What is the name of the founder of the art?", answer: "Sijo", options: ["Sifu", "Sihing", "Simo", "Sijo"]),
+        Question(question: "What is the name of your instructor of the art?", answer: "Sifu", options: ["Sifu", "Sihing", "Simo", "Sijo"]),
+        Question(question: "What is a Vertical Fist in Jun Fan?", answer: "Chung Choy", options: ["Chung Choy", "Gua Choy", "Ping Choy", "Chop Choy"]),
+        Question(question: "What is a Horizontal Fist in Jun Fan?", answer: "Ping Choy", options: ["Chung Choy", "Gua Choy", "Ping Choy", "Chop Choy"]),
+        Question(question: "What is an Extended Fist in Jun Fan?", answer: "Chop Choy", options: ["Chung Choy", "Gua Choy", "Ping Choy", "Chop Choy"]),
+        Question(question: "Pak Sao means ‘Slap Hand’", answer: "Yes", options: ["Yes", "No"]),
+        Question(question: "Lau Sing Choy means ‘Cross Punch’", answer: "No", options: ["Yes", "No"]),
+        Question(question: "Yut is 10", answer: "No", options: ["Yes", "No"]),
+        Question(question: "Yut, Yee, Sahm is ‘One, Two, Three’?", answer: "Yes", options: ["Yes", "No"]),
+        Question(question: "Jeet Kune Do means ‘Way of the intercepting leg’?", answer: "No", options: ["Yes", "No"]),
+        Question(question: "Gerk means ‘leg’", answer: "Yes", options: ["Yes", "No"]),
+        Question(question: "What is Ung Moon?", answer: "5 Gates", options: ["3 Gates", "4 Gates", "5 Gates"]),
+        Question(question: "What translates as ‘low’?", answer: "Ha", options: ["Go", "Ha", "Jun"]),
+        Question(question: "What is the form that means ‘Little Idea’?", answer: "Si Nim Tao", options: ["Si Gim Tao", "Si Nim Tao", "Si Lim Tao"]),
+        Question(question: "What is ABC?", answer: "Attack by Combination", options: ["Attack by Coordination", "Attack by Combination", "Attack by Consequence"])
     ]
     
-    func randomQuestion() -> Question {
-        let indexOfSelectedQuestion = GKRandomSource.sharedRandom().nextInt(upperBound: questions.count)
-        return questions[indexOfSelectedQuestion]
+    func randomQuestion(listToBeFiltered: [Question]) -> Question {
+        if listToBeFiltered.count > 0 {
+            let questionNamesForFiltering = listToBeFiltered.map { $0.question }
+            let filteredList = questions.filter { !questionNamesForFiltering.contains($0.question) }
+            let indexOfSelectedQuestion = GKRandomSource.sharedRandom().nextInt(upperBound: filteredList.count)
+            return filteredList[indexOfSelectedQuestion]
+        } else {
+            let indexOfSelectedQuestion = GKRandomSource.sharedRandom().nextInt(upperBound: questions.count)
+            return questions[indexOfSelectedQuestion]
+        }
+        
     }
 }

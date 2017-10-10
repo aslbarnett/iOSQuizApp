@@ -15,6 +15,8 @@
 		97093D431C913506001275BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97093D421C913506001275BC /* Assets.xcassets */; };
 		97093D461C913506001275BC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97093D441C913506001275BC /* LaunchScreen.storyboard */; };
 		97093D531C932116001275BC /* GameSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 97093D521C932116001275BC /* GameSound.wav */; };
+		DED125141F8CF2CB00AB76E5 /* CorrectAnswer.wav in Resources */ = {isa = PBXBuildFile; fileRef = DED125131F8CF2CB00AB76E5 /* CorrectAnswer.wav */; };
+		DED125161F8CF2D700AB76E5 /* IncorrectAnswer.wav in Resources */ = {isa = PBXBuildFile; fileRef = DED125151F8CF2D700AB76E5 /* IncorrectAnswer.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		97093D451C913506001275BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		97093D471C913506001275BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		97093D521C932116001275BC /* GameSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = GameSound.wav; sourceTree = "<group>"; };
+		DED125131F8CF2CB00AB76E5 /* CorrectAnswer.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = CorrectAnswer.wav; sourceTree = "<group>"; };
+		DED125151F8CF2D700AB76E5 /* IncorrectAnswer.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = IncorrectAnswer.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +64,8 @@
 		97093D3A1C913506001275BC /* TrueFalseStarter */ = {
 			isa = PBXGroup;
 			children = (
+				DED125151F8CF2D700AB76E5 /* IncorrectAnswer.wav */,
+				DED125131F8CF2CB00AB76E5 /* CorrectAnswer.wav */,
 				97093D3B1C913506001275BC /* AppDelegate.swift */,
 				97093D3D1C913506001275BC /* ViewController.swift */,
 				97093D3F1C913506001275BC /* Main.storyboard */,
@@ -134,6 +140,8 @@
 			files = (
 				97093D531C932116001275BC /* GameSound.wav in Resources */,
 				97093D461C913506001275BC /* LaunchScreen.storyboard in Resources */,
+				DED125161F8CF2D700AB76E5 /* IncorrectAnswer.wav in Resources */,
+				DED125141F8CF2CB00AB76E5 /* CorrectAnswer.wav in Resources */,
 				97093D431C913506001275BC /* Assets.xcassets in Resources */,
 				97093D411C913506001275BC /* Main.storyboard in Resources */,
 			);
